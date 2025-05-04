@@ -1,0 +1,137 @@
+c<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Filter by Category</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .categories button {
+      padding: 10px 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .categories button:hover {
+      background: #0056b3;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .product {
+      width: 200px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      display: none;
+    }
+
+    .product img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .product.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Filter Products by Category</h1>
+
+<div class="categories">
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('electronics')">Electronics</button>
+  <button onclick="filterProducts('fashion')">Fashion</button>
+  <button onclick="filterProducts('books')">Books</button>
+  <button onclick="filterProducts('groceries')">Groceries</button>
+  <button onclick="filterProducts('sports')">Sports</button>
+</div>
+
+<div class="products">
+  <!-- Electronics -->
+  <div class="product electronics show"><img src="https://via.placeholder.com/200x120?text=TV"><p>Smart TV</p></div>
+  <div class="product electronics"><img src="https://via.placeholder.com/200x120?text=Laptop"><p>Laptop</p></div>
+  <div class="product electronics"><img src="https://via.placeholder.com/200x120?text=Phone"><p>Smartphone</p></div>
+  <div class="product electronics"><img src="https://via.placeholder.com/200x120?text=Camera"><p>Camera</p></div>
+  <div class="product electronics"><img src="https://via.placeholder.com/200x120?text=Speaker"><p>Speaker</p></div>
+
+  <!-- Fashion -->
+  <div class="product fashion"><img src="https://via.placeholder.com/200x120?text=Shirt"><p>Men's Shirt</p></div>
+  <div class="product fashion"><img src="https://via.placeholder.com/200x120?text=Dress"><p>Women's Dress</p></div>
+  <div class="product fashion"><img src="https://via.placeholder.com/200x120?text=Shoes"><p>Shoes</p></div>
+  <div class="product fashion"><img src="https://via.placeholder.com/200x120?text=Watch"><p>Watch</p></div>
+  <div class="product fashion"><img src="https://via.placeholder.com/200x120?text=Bag"><p>Bag</p></div>
+
+  <!-- Books -->
+  <div class="product books"><img src="https://via.placeholder.com/200x120?text=Novel"><p>Fiction Novel</p></div>
+  <div class="product books"><img src="https://via.placeholder.com/200x120?text=Science"><p>Science Book</p></div>
+  <div class="product books"><img src="https://via.placeholder.com/200x120?text=Biography"><p>Biography</p></div>
+  <div class="product books"><img src="https://via.placeholder.com/200x120?text=Comics"><p>Comics</p></div>
+  <div class="product books"><img src="https://via.placeholder.com/200x120?text=History"><p>History Book</p></div>
+
+  <!-- Groceries -->
+  <div class="product groceries"><img src="https://via.placeholder.com/200x120?text=Fruits"><p>Fruits</p></div>
+  <div class="product groceries"><img src="https://via.placeholder.com/200x120?text=Vegetables"><p>Vegetables</p></div>
+  <div class="product groceries"><img src="https://via.placeholder.com/200x120?text=Milk"><p>Milk</p></div>
+  <div class="product groceries"><img src="https://via.placeholder.com/200x120?text=Rice"><p>Rice</p></div>
+  <div class="product groceries"><img src="https://via.placeholder.com/200x120?text=Snacks"><p>Snacks</p></div>
+
+  <!-- Sports -->
+  <div class="product sports"><img src="https://via.placeholder.com/200x120?text=Football"><p>Football</p></div>
+  <div class="product sports"><img src="https://via.placeholder.com/200x120?text=Bat"><p>Cricket Bat</p></div>
+  <div class="product sports"><img src="https://via.placeholder.com/200x120?text=Gloves"><p>Gym Gloves</p></div>
+  <div class="product sports"><img src="https://via.placeholder.com/200x120?text=Cycle"><p>Bicycle</p></div>
+  <div class="product sports"><img src="https://via.placeholder.com/200x120?text=Yoga"><p>Yoga Mat</p></div>
+</div>
+
+<script>
+  function filterProducts(category) {
+    const products = document.querySelectorAll('.product');
+    products.forEach(product => {
+      if (category === 'all') {
+        product.classList.add('show');
+      } else {
+        product.classList.toggle('show', product.classList.contains(category));
+      }
+    });
+  }
+
+  // Show all products on load
+  window.onload = () => filterProducts('all');
+</script>
+
+</body>
+</html>
